@@ -15,7 +15,9 @@ data/polideportivos.json   los 83 polideportivos: nombre, dirección, ubicación
 data/actividades.json      actividades de ejemplo (se reemplaza por la planilla)
 ```
 
-El mapa usa [Leaflet](https://leafletjs.com) con la base de OpenStreetMap. No requiere clave de Google ni tiene costo.
+El mapa usa [Leaflet](https://leafletjs.com). El fondo es de [MapTiler](https://www.maptiler.com) si hay una clave en `MAPTILER_KEY` (`assets/config.js`), o de OpenStreetMap si no. La clave de MapTiler es gratuita y conviene restringirla al dominio del sitio.
+
+Cada polideportivo tiene un botón **Cómo llegar** que abre Google Maps con la ruta hasta su ubicación (en el celular abre la app).
 
 ## Cómo se actualizan las actividades
 

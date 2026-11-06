@@ -65,6 +65,12 @@
     var x = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
     return 2 * R * Math.asin(Math.sqrt(x));
   }
+  // Abre Google Maps con la ruta desde donde esté la persona hasta el polideportivo
+  // (en el celular abre la app de Google Maps).
+  function ruta(p) {
+    if (p.lat == null) return p.maps;
+    return 'https://www.google.com/maps/dir/?api=1&destination=' + p.lat + ',' + p.lng;
+  }
   function waLink(poli, texto) {
     var num = (poli && poli.whatsapp) || CFG.WHATSAPP_GENERAL;
     if (!num) return '';
@@ -218,11 +224,15 @@
   function iniciarMapa() {
     if (!window.L) { $('#mapa').innerHTML = '<p class="sin-mapa">No se pudo cargar el mapa.</p>'; return; }
     S.mapa = L.map('mapa', { scrollWheelZoom: false }).setView(CENTRO, 11);
-    // Fondo de OpenStreetMap: gratuito y sin clave.
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(S.mapa);
+    var osm = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+    if (CFG.MAPTILER_KEY) {
+      L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=' + encodeURIComponent(CFG.MAPTILER_KEY), {
+        tileSize: 512, zoomOffset: -1, maxZoom: 19, crossOrigin: true,
+        attribution: '<a href="https://www.maptiler.com/copyright/">&copy; MapTiler</a> ' + osm
+      }).addTo(S.mapa);
+    } else {
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: osm }).addTo(S.mapa);
+    }
     S.capa = L.layerGroup().addTo(S.mapa);
   }
 
@@ -238,12 +248,13 @@
 
     $('#lista').innerHTML = acts.length ? acts.map(function (a) {
       var p = S.porId[a.poli], d = dist(a.poli);
-      return '<a class="tarjeta" href="#/p/' + esc(p.id) + '">' +
-        '<div class="tarjeta-top"><h3>' + esc(a.actividad) + '</h3>' + chipCosto(a.costo) + '</div>' +
+      return '<article class="tarjeta">' +
+        '<div class="tarjeta-top"><h3><a class="tarjeta-link" href="#/p/' + esc(p.id) + '">' + esc(a.actividad) + '</a></h3>' + chipCosto(a.costo) + '</div>' +
         '<p class="meta">' + esc(edadTexto(a.edades)) + ' · ' + esc(horariosTexto(a.horarios)) + '</p>' +
         '<p class="donde">Polideportivo ' + esc(p.nombre) + (isFinite(d) ? ' · a ' + d.toFixed(1).replace('.', ',') + ' km' : '') + '</p>' +
         (norm(a.costo).indexOf('aporte') > -1 ? '<p class="nota-aporte">Si no podés aportar, consultá: hay lugar gratuito.</p>' : '') +
-      '</a>';
+        '<a class="ir" href="' + esc(ruta(p)) + '" target="_blank" rel="noopener">' + icono('pin') + 'Cómo llegar</a>' +
+      '</article>';
     }).join('') : '<div class="vacio-msg"><h3>No encontramos actividades con esos filtros</h3><p>Probá con otro día u otra edad. Si te gustaría que exista, <a href="#sumate">pedila acá</a>.</p></div>';
 
     if (!S.capa) return;
@@ -260,7 +271,8 @@
       m.bindPopup('<div class="pop"><p class="eyebrow">Polideportivo social</p><h3>' + esc(p.nombre) + '</h3><p class="dir">' + esc(p.direccion) + '</p>' +
         (p.acts.length ? '<div class="etiquetas">' + Object.keys(tipos).slice(0, 4).map(function (t) { return '<span class="etiqueta">' + esc(t) + '</span>'; }).join('') + '</div>'
                        : '<p class="dir">Disponible para propuestas</p>') +
-        '<a class="btn btn-navy" href="#/p/' + esc(p.id) + '">' + (p.acts.length ? 'Ver actividades y horarios' : 'Ver el polideportivo') + '</a></div>');
+        '<a class="btn btn-primario" href="' + esc(ruta(p)) + '" target="_blank" rel="noopener">' + icono('pin') + 'Cómo llegar</a>' +
+        '<a class="btn btn-borde" href="#/p/' + esc(p.id) + '">' + (p.acts.length ? 'Ver actividades y horarios' : 'Ver el polideportivo') + '</a></div>');
       S.capa.addLayer(m);
     });
   }
@@ -313,7 +325,7 @@
         '<div class="ficha-acciones">' +
           (wa ? '<a class="btn btn-primario" href="' + esc(wa) + '" target="_blank" rel="noopener">' + icono('wa') + 'Escribir por WhatsApp</a>'
               : '<span class="btn btn-primario" aria-disabled="true">' + icono('wa') + 'Contacto por WhatsApp: próximamente</span>') +
-          '<a class="btn btn-borde" href="' + esc(p.lat != null ? 'https://www.google.com/maps/dir/?api=1&destination=' + p.lat + ',' + p.lng : p.maps) + '" target="_blank" rel="noopener">' + icono('pin') + 'Cómo llegar</a>' +
+          '<a class="btn btn-borde" href="' + esc(ruta(p)) + '" target="_blank" rel="noopener">' + icono('pin') + 'Cómo llegar</a>' +
           '<button type="button" class="btn btn-borde" id="compartir">' + icono('share') + 'Compartir</button>' +
         '</div>' +
         '<p class="actualizado" style="margin-top:10px">' + (S.ejemplo ? 'Actividades de ejemplo · ' : '') + (S.actualizado ? 'Actualizado el ' + esc(S.actualizado) : 'Datos del relevamiento 2026') + '</p>' +
