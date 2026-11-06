@@ -15,7 +15,7 @@ data/polideportivos.json   los 83 polideportivos: nombre, dirección, ubicación
 data/actividades.json      actividades de ejemplo (se reemplaza por la planilla)
 ```
 
-El mapa usa [Leaflet](https://leafletjs.com) con la base de OpenStreetMap/CARTO. No requiere clave de Google ni tiene costo.
+El mapa usa [Leaflet](https://leafletjs.com) con la base de OpenStreetMap. No requiere clave de Google ni tiene costo.
 
 ## Cómo se actualizan las actividades
 
