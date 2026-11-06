@@ -312,7 +312,7 @@
         '<div class="ficha-acciones">' +
           (wa ? '<a class="btn btn-primario" href="' + esc(wa) + '" target="_blank" rel="noopener">' + icono('wa') + 'Escribir por WhatsApp</a>'
               : '<span class="btn btn-primario" aria-disabled="true">' + icono('wa') + 'Contacto por WhatsApp: próximamente</span>') +
-          '<a class="btn btn-borde" href="' + esc(p.maps) + '" target="_blank" rel="noopener">' + icono('pin') + 'Cómo llegar</a>' +
+          '<a class="btn btn-borde" href="' + esc(p.lat != null ? 'https://www.google.com/maps/dir/?api=1&destination=' + p.lat + ',' + p.lng : p.maps) + '" target="_blank" rel="noopener">' + icono('pin') + 'Cómo llegar</a>' +
           '<button type="button" class="btn btn-borde" id="compartir">' + icono('share') + 'Compartir</button>' +
         '</div>' +
         '<p class="actualizado" style="margin-top:10px">' + (S.ejemplo ? 'Actividades de ejemplo · ' : '') + (S.actualizado ? 'Actualizado el ' + esc(S.actualizado) : 'Datos del relevamiento 2026') + '</p>' +
