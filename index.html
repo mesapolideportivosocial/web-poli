@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polideportivos Sociales · Municipalidad de Córdoba</title>
+<meta name="description" content="Encontrá qué hacer en el polideportivo de tu barrio: actividades, horarios y contacto de los 83 Polideportivos Sociales de Córdoba.">
+<meta name="theme-color" content="#16447E">
+<meta property="og:title" content="Polideportivos Sociales · Córdoba">
+<meta property="og:description" content="Actividades, horarios y contacto de los Polideportivos Sociales de tu barrio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="sitio-head">
+  <svg class="franjas" aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMaxYMin slice">
+    <polygon points="250,0 280,0 680,400 650,400" fill="#F2A81D"/>
+    <polygon points="290,0 320,0 720,400 690,400" fill="#CD602D"/>
+    <polygon points="330,0 360,0 760,400 730,400" fill="#AC203C"/>
+    <polygon points="370,0 400,0 800,400 770,400" fill="#A4123F"/>
+  </svg>
+  <div class="contenedor barra">
+    <a class="marca" href="#/">
+      <span class="logo-slot" aria-hidden="true">LOGO</span>
+      <span class="marca-txt"><strong>Polideportivos Sociales</strong><small>Municipalidad de Córdoba</small></span>
+    </a>
+    <nav aria-label="Principal" class="nav">
+      <a href="#/#buscar">Actividades</a>
+      <a href="#/#todos">Polideportivos</a>
+      <a href="#/#sumate">Sumate</a>
+    </nav>
+  </div>
+</header>
+
+<div id="aviso-ejemplo" class="aviso" hidden>
+  <div class="contenedor">Versión de prueba: las actividades que ves son de ejemplo y todavía no salen del relevamiento.</div>
+</div>
+
+<main id="contenido" tabindex="-1">
+  <div id="app"><p class="contenedor cargando">Cargando…</p></div>
+</main>
+
+<footer class="sitio-pie">
+  <div class="contenedor pie">
+    <span>Polideportivos Sociales · Dirección de Vinculación · Municipalidad de Córdoba</span>
+    <span id="pie-actualizado"></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "ejemplo": true,
+  "actualizado": "",
+  "actividades": [
+    {"poli": "marcos-sastre", "actividad": "Fútbol femenino", "categoria": "Deporte", "horarios": ["Mar tarde", "Jue tarde"], "edades": ["11-13", "14-16"], "costo": "Gratuita", "dicta": "[Profe o institución]"},
+    {"poli": "marcos-sastre", "actividad": "Fútbol", "categoria": "Deporte", "horarios": ["Lun tarde", "Mié tarde", "Vie tarde"], "edades": ["7-10", "11-13"], "costo": "Gratuita", "dicta": "[Club del barrio]"},
+    {"poli": "marcos-sastre", "actividad": "Ritmos y baile", "categoria": "Bienestar", "horarios": ["Lun noche", "Mié noche"], "edades": ["17-29", "30-59", "60+"], "costo": "Con aporte", "dicta": "[Profe]"},
+    {"poli": "marcos-sastre", "actividad": "Apoyo escolar", "categoria": "Educación", "horarios": ["Mar mañana", "Jue mañana"], "edades": ["7-10", "11-13"], "costo": "Gratuita", "dicta": "[Organización]"},
+    {"poli": "policial-anexo", "actividad": "Vóley", "categoria": "Deporte", "horarios": ["Mar tarde", "Jue tarde"], "edades": ["11-13", "14-16"], "costo": "Gratuita", "dicta": "[Profe]"},
+    {"poli": "policial-anexo", "actividad": "Ritmos y baile", "categoria": "Bienestar", "horarios": ["Lun noche", "Mié noche"], "edades": ["30-59", "60+"], "costo": "Con aporte", "dicta": "[Profe]"},
+    {"poli": "ampliacion-ferreyra", "actividad": "Apoyo escolar", "categoria": "Educación", "horarios": ["Lun mañana", "Mar mañana", "Mié mañana", "Jue mañana", "Vie mañana"], "edades": ["7-10", "11-13"], "costo": "Gratuita", "dicta": "[Organización]"},
+    {"poli": "ampliacion-ferreyra", "actividad": "Hockey", "categoria": "Deporte", "horarios": ["Sáb mañana"], "edades": ["7-10", "11-13", "14-16"], "costo": "Consultar", "dicta": "[Club]"},
+    {"poli": "guinazu", "actividad": "Yoga y estiramiento", "categoria": "Bienestar", "horarios": ["Sáb mañana"], "edades": ["60+"], "costo": "Consultar", "dicta": "[Profe]"},
+    {"poli": "villa-el-libertador", "actividad": "Básquet", "categoria": "Deporte", "horarios": ["Lun tarde", "Jue tarde"], "edades": ["14-16", "17-29"], "costo": "Gratuita", "dicta": "[Profe]"},
+    {"poli": "villa-el-libertador", "actividad": "Taller de música", "categoria": "Cultura", "horarios": ["Vie tarde"], "edades": ["11-13", "14-16", "17-29"], "costo": "Gratuita", "dicta": "[Tallerista]"},
+    {"poli": "ciudad-evita", "actividad": "Patín", "categoria": "Deporte", "horarios": ["Mié tarde", "Sáb mañana"], "edades": ["hasta-6", "7-10"], "costo": "Con aporte", "dicta": "[Profe]"}
+  ]
+}
