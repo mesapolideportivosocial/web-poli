@@ -2,7 +2,7 @@
 window.CONFIG = {
   // Clave de MapTiler para el fondo del mapa (cloud.maptiler.com > API keys).
   // Restringila al dominio del sitio en "Allowed HTTP origins". Si queda vacía, se usa OpenStreetMap.
-  MAPTILER_KEY: "",
+  MAPTILER_KEY: "3Lo2rxjrwvEPoS7wqQ1T",
 
   // Planilla de Google publicada como CSV (Archivo > Compartir > Publicar en la web > pestaña "Web" > CSV).
   // Si queda vacío, el sitio usa data/actividades.json.
