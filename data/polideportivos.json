@@ -1077,5 +1077,18 @@
   "instalaciones": [],
   "proxima_mesa": "",
   "ubicacion_aproximada": false
+ },
+ {
+  "id": "los-40-guasos",
+  "nombre": "Los 40 Guasos",
+  "direccion": "Dirección a confirmar",
+  "maps": "https://maps.app.goo.gl/Md5kU2PKc1ejsd748",
+  "lat": -31.466722,
+  "lng": -64.105584,
+  "horario_apertura": "",
+  "whatsapp": "",
+  "instalaciones": [],
+  "proxima_mesa": "",
+  "ubicacion_aproximada": false
  }
 ]

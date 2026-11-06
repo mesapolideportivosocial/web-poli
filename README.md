@@ -1,6 +1,6 @@
 # Web de los Polideportivos Sociales
 
-Sitio público de los 83 Polideportivos Sociales de la Municipalidad de Córdoba: un mapa con todos los polideportivos, un buscador de actividades por edad, día y turno, y una ficha por polideportivo con su propia dirección (`/#/p/<id>`), pensada para el código QR de la entrada.
+Sitio público de los Polideportivos Sociales de la Municipalidad de Córdoba: un mapa con todos los polideportivos, un buscador de actividades por edad, día y turno, y una ficha por polideportivo con su propia dirección (`/#/p/<id>`), pensada para el código QR de la entrada.
 
 Es un sitio estático: no tiene servidor ni base de datos. Se publica con GitHub Pages.
 
@@ -11,7 +11,7 @@ index.html                 estructura de la página
 assets/styles.css          estilos (manual de marca: Maven Pro, navy, granate, franjas)
 assets/app.js              lógica: carga de datos, mapa, buscador, fichas
 assets/config.js           ÚNICO archivo de configuración (planilla, WhatsApp, formularios)
-data/polideportivos.json   los 83 polideportivos: nombre, dirección, ubicación
+data/polideportivos.json   todos los polideportivos: nombre, dirección, ubicación
 data/actividades.json      actividades de ejemplo (se reemplaza por la planilla)
 ```
 
